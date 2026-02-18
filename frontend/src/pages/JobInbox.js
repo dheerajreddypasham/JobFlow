@@ -490,7 +490,11 @@ export const JobInbox = () => {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.03 }}
-                          className={`bg-stone-50 rounded-lg p-4 border transition-all ${\n                            selectedJobs.has(index)\n                              ? 'border-[#064E3B] bg-[#ECFDF5]'\n                              : 'border-stone-200 hover:border-stone-300'\n                          }`}
+                          className={`bg-stone-50 rounded-lg p-4 border transition-all ${
+                            selectedJobs.has(index)
+                              ? 'border-[#064E3B] bg-[#ECFDF5]'
+                              : 'border-stone-200 hover:border-stone-300'
+                          }`}
                           data-testid={`search-result-${index}`}
                         >
                           <div className="flex items-start gap-4">
