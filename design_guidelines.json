@@ -1,0 +1,165 @@
+{
+  "identity": {
+    "name": "E1 - The Anti-AI Designer",
+    "core_philosophy": "Fusion over Imitation. Emotion First. Content is King.",
+    "vibe": "Zen Productivity. Swiss Precision meets Organic Warmth.",
+    "anti_patterns": [
+      "Purple/Teal gradients",
+      "Inter font everywhere",
+      "Centered layouts by default",
+      "Generic 'SaaS Blue' primary colors",
+      "Cramped spacing (use 2-3x normal spacing)"
+    ]
+  },
+  "typography": {
+    "headings": {
+      "family": "Outfit, sans-serif",
+      "weights": ["500", "600", "700"],
+      "usage": "Use for all H1-H6. Tight tracking (tracking-tight) for sizes > 32px. No uppercase unless overline label."
+    },
+    "body": {
+      "family": "Plus Jakarta Sans, Inter, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "Use for all paragraphs, inputs, and UI text. High legibility."
+    },
+    "accents": {
+      "family": "Libre Baskerville, serif",
+      "usage": "Use ONLY for AI summaries/messages to give them a 'written' human feel. Italicize key phrases."
+    },
+    "scale": {
+      "h1": "text-5xl md:text-6xl font-medium tracking-tighter leading-[1.1]",
+      "h2": "text-3xl md:text-4xl font-medium tracking-tight",
+      "h3": "text-2xl font-medium tracking-tight",
+      "body": "text-base md:text-lg leading-relaxed text-stone-600",
+      "label": "text-xs font-bold uppercase tracking-widest text-stone-500"
+    }
+  },
+  "colors": {
+    "palette_name": "Organic Swiss",
+    "theme": "Light",
+    "background": {
+      "app": "#FAFAF9",
+      "card": "#FFFFFF",
+      "sidebar": "#F5F5F4"
+    },
+    "primary": {
+      "DEFAULT": "#064E3B",
+      "foreground": "#ECFDF5",
+      "description": "Deep Emerald/Forest Green. Represents Growth and Stability."
+    },
+    "secondary": {
+      "DEFAULT": "#D97706",
+      "foreground": "#FFFBEB",
+      "description": "Warm Amber/Ochre. Use for 'Action Required' or 'High Priority'."
+    },
+    "accent": {
+      "DEFAULT": "#F5F5F4",
+      "foreground": "#1C1917"
+    },
+    "text": {
+      "primary": "#1C1917",
+      "secondary": "#57534E",
+      "muted": "#A8A29E"
+    },
+    "border": {
+      "subtle": "#E7E5E4",
+      "focus": "#064E3B"
+    },
+    "status": {
+      "success": "#059669",
+      "warning": "#D97706",
+      "error": "#DC2626",
+      "info": "#0F766E"
+    }
+  },
+  "spacing_layout": {
+    "grid_system": "Bento Grid (Asymmetric)",
+    "container_padding": "p-8 md:p-12 lg:p-16",
+    "card_padding": "p-6 md:p-8",
+    "gap": "gap-6 md:gap-8",
+    "radius": "rounded-xl",
+    "constraints": {
+      "max_width": "max-w-7xl mx-auto",
+      "images_mobile": "max-h-[80vh]"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": "shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300",
+    "glassmorphism": "bg-white/70 backdrop-blur-xl border border-white/40",
+    "texture": "Subtle noise overlay (opacity 0.02) on the main background to reduce digital sterility.",
+    "borders": "1px solid #E7E5E4. No heavy borders. Use 'divide-y' for lists."
+  },
+  "components": {
+    "buttons": {
+      "primary": "rounded-full px-8 py-3 bg-primary text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-lg shadow-primary/20",
+      "secondary": "rounded-full px-6 py-3 bg-stone-100 text-stone-900 hover:bg-stone-200",
+      "ghost": "rounded-full px-4 py-2 hover:bg-stone-100 text-stone-600"
+    },
+    "cards": {
+      "style": "bg-white rounded-xl border border-stone-200/60 shadow-sm overflow-hidden",
+      "hover": "hover:border-stone-300 transition-colors duration-200"
+    },
+    "kanban": {
+      "column": "bg-stone-50/50 rounded-2xl p-4 min-w-[300px] border border-transparent",
+      "card": "bg-white p-4 rounded-xl shadow-sm border border-stone-100 hover:shadow-md cursor-grab active:cursor-grabbing mb-3"
+    },
+    "inputs": {
+      "style": "bg-white border-stone-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm placeholder:text-stone-400"
+    }
+  },
+  "image_assets": {
+    "workspace_hero": {
+      "url": "https://images.unsplash.com/photo-1766330977451-de1b64b5e641?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVzayUyMHNldHVwJTIwemVufGVufDB8fHx8MTc3MTM3NTE0Mnww&ixlib=rb-4.1.0&q=85",
+      "alt": "Minimalist Zen Workspace",
+      "usage": "Use as background for the Onboarding/Login page with a dark overlay."
+    },
+    "user_avatar": {
+      "url": "https://images.unsplash.com/photo-1675186914580-94356f7c012c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRpdmVyc2UlMjBzbWlsZXxlbnwwfHx8fDE3NzEzNzUxNDN8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "User Profile",
+      "usage": "Default user avatar in the top right dashboard."
+    },
+    "empty_state_zen": {
+      "url": "https://images.unsplash.com/photo-1522591755584-8ef01cdf743b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVzayUyMHNldHVwJTIwemVufGVufDB8fHx8MTc3MTM3NTE0Mnww&ixlib=rb-4.1.0&q=85",
+      "alt": "Clean Desk Empty State",
+      "usage": "Use when Job Inbox is empty or All Tasks Complete."
+    }
+  },
+  "instructions_to_main_agent": {
+    "general": [
+      "Follow the 'Zen Productivity' theme. Do not make it look like a spreadsheet.",
+      "Use ample whitespace. Don't crowd the dashboard.",
+      "Prioritize the 'Today' view. It should look like a curated agenda.",
+      "Animations: Use 'framer-motion' for staggered entrance of list items and smooth page transitions.",
+      "Toasts: Use 'sonner' for all notifications.",
+      "Icons: Use 'lucide-react' with stroke-width={1.5} for a refined look."
+    ],
+    "dashboard_layout": {
+      "structure": "Sidebar (collapsible) + Main Content Area.",
+      "sidebar": "Fixed width (240px). Minimal navigation. Logo at top.",
+      "main": "Scrollable area. Max-width constraint (max-w-6xl) to prevent eye fatigue on wide screens."
+    },
+    "feature_specifics": {
+      "kanban_board": "Horizontal scroll container. Columns: Saved, To Apply, Applied, Interview, Offer, Rejected. Make columns collapsible if possible.",
+      "job_card": "Minimalist. Company Logo (placeholder circle if none), Job Title (Bold), Location (Text-sm muted), Days ago tag.",
+      "ai_assistant": "Panel that slides in from the right. Use the 'Libre Baskerville' font for the AI's voice to differentiate it from UI text."
+    },
+    "tech_stack_rules": {
+      "react": "Use functional components with hooks.",
+      "tailwind": "Use arbitrary values only if necessary. Stick to the design tokens defined above.",
+      "shadcn": "Customize the default radius and focus rings to match the 'Organic Swiss' theme."
+    }
+  },
+  "UNIVERSAL_GUIDELINES": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms.",
+    "You MUST NOT center align the app container (.App { text-align: center; }).",
+    "Always use modern button styles (pill-shaped or sharp).",
+    "NEVER use AI assistant Emoji characters (🤖, etc.) for icons. Use Lucide icons.",
+    "Every interaction needs micro-animations - hover states, transitions, entrance animations.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports."
+  ]
+}
