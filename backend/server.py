@@ -547,7 +547,7 @@ SUMMARY:
                 "keywords": ["Communication", "Problem Solving", "Teamwork"],
                 "summary": ["Analyze the role requirements", "Strong technical skills needed", "Good growth opportunity"]
             }
-        except:
+        except Exception:
             raise HTTPException(status_code=500, detail="AI service unavailable")
 
 @api_router.post("/ai/generate-cover-letter")
