@@ -5,28 +5,35 @@ import { Loader2 } from 'lucide-react';
 
 export const ProtectedRoute = ({ children }) => {
   const location = useLocation();
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    location.state?.user ? true : null
-  );
-  const [user, setUser] = useState(location.state?.user || null);
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [user, setUser] = useState(null);
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    if (location.state?.user) return;
-
     const checkAuth = async () => {
+      if (location.state?.user) {
+        setUser(location.state.user);
+        setIsAuthenticated(true);
+        setIsChecking(false);
+        return;
+      }
+
       try {
         const response = await authAPI.getMe();
         setUser(response.data);
         setIsAuthenticated(true);
       } catch (error) {
+        console.error('Auth check failed:', error);
         setIsAuthenticated(false);
+      } finally {
+        setIsChecking(false);
       }
     };
 
     checkAuth();
-  }, [location.state]);
+  }, [location.pathname, location.state]);
 
-  if (isAuthenticated === null) {
+  if (isChecking) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FAFAF9]">
         <Loader2 className="w-8 h-8 animate-spin text-[#064E3B]" />
