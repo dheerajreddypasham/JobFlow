@@ -327,6 +327,48 @@ async def delete_job(job_id: str, request: Request, session_token: Optional[str]
     
     return {"message": "Job deleted successfully"}
 
+class JobSearchRequest(BaseModel):
+    query: str
+    location: Optional[str] = None
+    remote_only: bool = False
+    experience_level: Optional[str] = None
+    max_results: int = 20
+
+@api_router.post("/jobs/search")
+async def search_jobs(search_request: JobSearchRequest, request: Request, session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
+    user = await get_current_user(request, session_token, authorization)
+    
+    try:
+        results = await job_scraper.search_jobs(
+            query=search_request.query,
+            location=search_request.location,
+            remote_only=search_request.remote_only,
+            experience_level=search_request.experience_level,
+            max_results=search_request.max_results
+        )
+        return {"jobs": results, "count": len(results)}
+    except Exception as e:
+        logging.error(f"Job search error: {str(e)}")
+        raise HTTPException(status_code=500, detail="Job search failed")
+
+@api_router.post("/jobs/bulk-save")
+async def bulk_save_jobs(jobs_data: List[JobCreate], request: Request, session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
+    user = await get_current_user(request, session_token, authorization)
+    
+    saved_jobs = []
+    for job_data in jobs_data:
+        job = Job(user_id=user.user_id, **job_data.model_dump())
+        job_dict = job.model_dump()
+        
+        for date_field in ["date_added", "applied_date", "interview_date"]:
+            if date_field in job_dict and job_dict[date_field]:
+                job_dict[date_field] = job_dict[date_field].isoformat()
+        
+        await db.jobs.insert_one(job_dict)
+        saved_jobs.append(job)
+    
+    return {"message": f"{len(saved_jobs)} jobs saved successfully", "count": len(saved_jobs)}
+
 @api_router.get("/goals", response_model=DailyGoals)
 async def get_goals(request: Request, session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
     user = await get_current_user(request, session_token, authorization)
