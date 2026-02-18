@@ -25,19 +25,22 @@ class JobSearchAPITester:
         if headers:
             test_headers.update(headers)
 
+        # Also try with cookies
+        cookies = {'session_token': self.session_token} if self.session_token else None
+
         self.tests_run += 1
         print(f"\n🔍 Testing {name}...")
         print(f"   URL: {url}")
         
         try:
             if method == 'GET':
-                response = requests.get(url, headers=test_headers, timeout=10)
+                response = requests.get(url, headers=test_headers, cookies=cookies, timeout=10)
             elif method == 'POST':
-                response = requests.post(url, json=data, headers=test_headers, timeout=10)
+                response = requests.post(url, json=data, headers=test_headers, cookies=cookies, timeout=10)
             elif method == 'PATCH':
-                response = requests.patch(url, json=data, headers=test_headers, timeout=10)
+                response = requests.patch(url, json=data, headers=test_headers, cookies=cookies, timeout=10)
             elif method == 'DELETE':
-                response = requests.delete(url, headers=test_headers, timeout=10)
+                response = requests.delete(url, headers=test_headers, cookies=cookies, timeout=10)
 
             success = response.status_code == expected_status
             if success:
