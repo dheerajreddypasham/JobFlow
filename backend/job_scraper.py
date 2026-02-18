@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import logging
 import re
 from urllib.parse import quote_plus
