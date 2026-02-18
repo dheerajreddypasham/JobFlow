@@ -513,7 +513,7 @@ SUMMARY:
             if line.startswith("MATCH_SCORE:"):
                 try:
                     match_score = int(line.split(":")[1].strip())
-                except:
+                except (ValueError, IndexError):
                     pass
             elif line.startswith("KEYWORDS:"):
                 keywords_str = line.split(":", 1)[1].strip()
